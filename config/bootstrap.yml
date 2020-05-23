@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: ig-scrapper
+  profiles: dev
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/igscrapper?stringtype=unspecified
+    username: igscrapper
+    password: igscrapper
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-test-query: SELECT 1
+      maximum-pool-size: 10
+  jpa:
+    database-platform: id.co.scrapper.instagram.config.FixedPostgreSQL82Dialect
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+logging:
+  config: file:config/logback.xml
+  
